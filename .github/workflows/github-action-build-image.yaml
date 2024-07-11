@@ -50,12 +50,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          flavor: |
-            latest=auto
-            prefix=
-            suffix=
-          tags: |
-            type=ref,event=tag
+          tags: aldoclemente/fdapde-docker:latest
           labels: ${{ steps.meta.outputs.labels }}
       
 
