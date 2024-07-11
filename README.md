@@ -16,7 +16,7 @@ To pull the image, run from terminal:
     docker pull aldoclemente/fdapde-docker
 ```
 
-To start a temporary contained, run from terminal:
+To start a temporary container, run from terminal:
 ```
    docker run --rm -ti aldoclemente/fdapde-docker 
 ```
