@@ -23,6 +23,6 @@ To start a temporary contained, run from terminal:
 
 To mount the directory `<dir>`, run from terminal:
 ```
-    docker run --name=tmp-container -v $(pwd)/../<dir>:/root/<dir> --rm -ti $IMAGE 
+    docker run --name=tmp-container -v $(pwd)/../<dir>:/root/<dir> --rm -ti aldoclemente/fdapde-docker /bin/bash
 ```
-Note that the running container is removed once the session ends, i.e., after running `exit`.
+Note that the running container is removed once the session ends, i.e., after running `exit` from terminal.
