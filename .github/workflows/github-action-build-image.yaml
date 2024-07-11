@@ -50,7 +50,12 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          flavor: |
+            latest=auto
+            prefix=
+            suffix=
+          tags: |
+            type=ref,event=tag
           labels: ${{ steps.meta.outputs.labels }}
       
 
