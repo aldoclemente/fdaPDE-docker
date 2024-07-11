@@ -1,6 +1,7 @@
 FROM archlinux:latest
 
 RUN pacman --noconfirm -Sy gcc
+RUN pacman --noconfirm -Sy clang
 RUN pacman --noconfirm -Sy icu
 RUN pacman --noconfirm -Sy make
 RUN pacman --noconfirm -Sy cmake
