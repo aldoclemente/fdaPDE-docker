@@ -16,4 +16,5 @@ RUN pacman --noconfirm -Sy python3
 RUN pacman --noconfirm -Sy r-base
 RUN pacman --noconfirm -Sy nano
 RUN pacman --noconfirm -Sy gtest
+RUN pacman --noconfirm -Sy valgrind
 
