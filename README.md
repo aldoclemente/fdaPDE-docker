@@ -1,8 +1,8 @@
 ### Install docker 
 
-#### (Windows user)
+#### Windows user
 
-##### Install WSL (Windows Subsystem for Linux)
+##### Prerequisites: WSL (Windows Subsystem for Linux)
 
 1. Enable virtualization in BIOS:
  - Restart your computer and enter the BIOS setup. This is usually done by pressing a key during startup, such as F2, F10, Del, or Esc (the key varies by manufacturer).
@@ -15,7 +15,7 @@
 
 3. Run the following command from the command propt:
 	```
-		wsl --install --distribution Ubuntu
+	 wsl --install --distribution Ubuntu
 	``` 
 This command will install Windows Subsystem for Linux (WSL) and the Ubuntu distribution.
 
@@ -26,7 +26,7 @@ This command will install Windows Subsystem for Linux (WSL) and the Ubuntu distr
 5. Check the Version of WSL:
 - run from a command propt:
 	```
-		wsl --version
+	 wsl --version
 	```
 
 ##### Docker installation
@@ -58,13 +58,13 @@ This command will install Windows Subsystem for Linux (WSL) and the Ubuntu distr
     ```
  - Once in the WSL terminal, check the Docker version by running:
     ```
- 	docker --version 
+ 	 docker --version 
  	```
  	This command should display the installed Docker version, confirming that Docker is correctly set up.
 7. Use Docker:
  - Now, you can use Docker in your WSL environment. For example, you can pull and run Docker images. Go to the Miscellaneous section and enjoy fdapde-docker image.
 
-#### Install docker (macOs user)
+#### macOs user
 
 1. Download and install Docker:
  - Run from a terminal:
@@ -87,7 +87,7 @@ This command will install Windows Subsystem for Linux (WSL) and the Ubuntu distr
  - Now, you can use Docker. For example, you can pull and run Docker images. Go to the Miscellaneous section and enjoy fdapde-docker image.
 
 
-#### Install docker (Ubuntu user)
+#### Ubuntu user
 
 1. Download and install Docker:
  - Run from a terminal:
@@ -115,16 +115,16 @@ This command will install Windows Subsystem for Linux (WSL) and the Ubuntu distr
 All the following commands can be run in a Linux or macOS terminal. If you are a Windows user, ensure you have successfully installed WSL and Docker as explained in the Installation section.   
 To pull the image, run from terminal:
 ```
-    docker pull aldoclemente/fdapde-docker
+ docker pull aldoclemente/fdapde-docker
 ```
 
 To start a temporary container, run from terminal:
 ```
-   docker run --rm -ti aldoclemente/fdapde-docker 
+ docker run --rm -ti aldoclemente/fdapde-docker 
 ```
 
 To mount the directory `<dir>`, run from terminal:
 ```
-    docker run --name=tmp-container -v $(pwd)/../<dir>:/root/<dir> --rm -ti aldoclemente/fdapde-docker /bin/bash
+ docker run --name=tmp-container -v $(pwd)/../<dir>:/root/<dir> --rm -ti aldoclemente/fdapde-docker /bin/bash
 ```
 Note that the running container is removed once the session ends, i.e., after running `exit` from terminal.
