@@ -66,12 +66,17 @@ This command will install Windows Subsystem for Linux (WSL) and the Ubuntu distr
 
 #### macOs user
 
-1. Download and install Docker:
+1. Install Homebrew:
+ - Run from a terminal:
+    ```
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	```
+2. Download and install Docker:
  - Run from a terminal:
 	```
   	 brew install --cask docker
 	```
-2. Configure Docker:
+3. Configure Docker:
  - Once the installation is complete, open Docker Desktop.
  	```
 	 open /Applications/Docker.app
@@ -80,10 +85,10 @@ This command will install Windows Subsystem for Linux (WSL) and the Ubuntu distr
  - Open Docker Desktop, go to Settings (the gear icon), then navigate to `Resources` -> `WSL Integration`.
  - Ensure that WSL integration is enabled and check all your installed Linux distributions.
 
-3. Reboot Your Machine:
+4. Reboot Your Machine:
  - After configuring Docker, reboot your machine to ensure all settings take effect.
 
-4. Use Docker:
+5. Use Docker:
  - Now, you can use Docker. For example, you can pull and run Docker images. Go to the Miscellaneous section and enjoy fdapde-docker image.
 
 
