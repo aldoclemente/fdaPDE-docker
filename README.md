@@ -110,8 +110,6 @@ This command will install Windows Subsystem for Linux (WSL) and the Ubuntu distr
 	 docker login
 	```
  - You will need to log in with your Docker account. If you don't have one, you can create it on the Docker website.
- - Open Docker Desktop, go to Settings (the gear icon), then navigate to `Resources` -> `WSL Integration`.
- - Ensure that WSL integration is enabled and check all your installed Linux distributions.
 
 4. Use Docker:
  - Now, you can use Docker. For example, you can pull and run Docker images. Go to the Miscellaneous section and enjoy fdapde-docker image.
@@ -133,3 +131,23 @@ To mount the directory `<dir>`, run from terminal:
  docker run --name=tmp-container -v $(pwd)/../<dir>:/root/<dir> --rm -ti aldoclemente/fdapde-docker /bin/bash
 ```
 Note that the running container is removed once the session ends, i.e., after running `exit` from terminal.
+
+In the following, assume you have forked `fdaPDE-cpp` and developed a new, fancy model. 
+Once inside the docker container, you can run the tests as follows:
+```
+cd 
+cd <dir>/test/
+./run_test.sh
+```
+
+You can also implement your own C++ `script`. Assuming you have a `<dir>/test/script/`, which contains all the scripts you've implemented, to compile a specific script, run the following command:
+```
+g++ -o script script.cpp -I../../ -I../../fdaPDE/core/ -I/usr/include/eigen3 -O2 -std=c++20 -g -march=native -DFDAPDE_NO_DEBUG
+```
+Note the three -I include paths. If you've forked `fdaPDE-core`, omit the `-I../../fdaPDE/core/` option in the above command to compile your script.
+The Docker image also provides MPI support. To compile a script and run it in the container using MPI, use the following commands:
+```
+mpicxx -o output script.cpp -I../../ -I../../fdaPDE/core/ -I/usr/include/eigen3 -O2 -std=c++20 -g -march=native -DFDAPDE_NO_DEBUG
+mpiexec --allow-run-as-root -n <processes> ./script
+```
+
