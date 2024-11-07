@@ -1,5 +1,6 @@
 FROM archlinux:latest
 
+RUN pacman -Syu
 RUN pacman --noconfirm -Sy gcc
 RUN pacman --noconfirm -Sy clang
 RUN pacman --noconfirm -Sy icu
@@ -17,4 +18,6 @@ RUN pacman --noconfirm -Sy r-base
 RUN pacman --noconfirm -Sy nano
 RUN pacman --noconfirm -Sy gtest
 RUN pacman --noconfirm -Sy valgrind
+RUN pacman --noconfirm -Sy openmpi
+
 
