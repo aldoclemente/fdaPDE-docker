@@ -126,13 +126,13 @@ To start a temporary container, run from terminal:
  docker run --rm -ti aldoclemente/fdapde-docker 
 ```
 
-To mount the directory `<dir>`, run from terminal:
+To mount the directory `<dir>`, which contains a forked repository from the `fdaPDE` library, run from terminal:
 ```
  docker run --name=tmp-container -v $(pwd)/../<dir>:/root/<dir> --rm -ti aldoclemente/fdapde-docker /bin/bash
 ```
-Note that the running container is removed once the session ends, i.e., after running `exit` from terminal.
+Note that the running container is removed once the session ends (i.e., after you run `exit` in the terminal).
 
-In the following, assume you have forked `fdaPDE-cpp` and developed a new, fancy model. 
+In the following, assume you have forked `fdaPDE-cpp` and developed a new, fancy statistical model. 
 Once inside the docker container, you can run the tests as follows:
 ```
 cd 
@@ -140,14 +140,18 @@ cd <dir>/test/
 ./run_test.sh
 ```
 
-You can also implement your own C++ `script`. Assuming you have a `<dir>/test/script/`, which contains all the scripts you've implemented, to compile a specific script, run the following command:
+Aside from the tests, you can also implement your own C++ `script`. To compile a specific script, run the following command:
 ```
-g++ -o script script.cpp -I../../ -I../../fdaPDE/core/ -I/usr/include/eigen3 -O2 -std=c++20 -g -march=native -DFDAPDE_NO_DEBUG
+g++ -o script script.cpp -I/path/to/<dir> -I/path/to/<dir>/fdaPDE/core/ -I/usr/include/eigen3 -O2 -std=c++20 -g -march=native -DFDAPDE_NO_DEBUG
 ```
-Note the three -I include paths. If you've forked `fdaPDE-core`, omit the `-I../../fdaPDE/core/` option in the above command to compile your script. Additionally, remember that every C++ script you implement must contain `#include<Eigen/Dense>` as well as the appropriate header files from the fdaPDE library. 
-The Docker image also provides MPI support. To compile a script and run it in the container using MPI, use the following commands:
+Note the three `-I` include paths. Additionally, remember that every C++ script you implement must contain `#include<Eigen/Dense>` as well as the appropriate header files from the fdaPDE library. 
+The Docker image also provides MPI support. To compile a script in the container using MPI, use the following command:
 ```
-mpicxx -o output script.cpp -I../../ -I../../fdaPDE/core/ -I/usr/include/eigen3 -O2 -std=c++20 -g -march=native -DFDAPDE_NO_DEBUG
-mpiexec --allow-run-as-root -n <processes> ./script
+mpicxx -o output script.cpp -I/path/to/<dir>/ -I/path/to/<dir>/fdaPDE/core/ -I/usr/include/eigen3 -O2 -std=c++20 -g -march=native -DFDAPDE_NO_DEBUG
 ```
+Finally, to run the executable using MPI, use the following command:
+```
+mpiexec --allow-run-as-root -np <processes> ./script
+```
+where `<processes>` is the desired number of processes.
 
