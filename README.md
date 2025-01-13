@@ -128,7 +128,7 @@ To start a temporary container, run from terminal:
 
 To mount the directory `<dir>`, which contains a forked repository from the `fdaPDE` library, run from terminal:
 ```
- docker run --name=tmp-container -v $(pwd)/../<dir>:/root/<dir> --rm -ti aldoclemente/fdapde-docker /bin/bash
+ docker run --rm --name=tmp-container -v $(pwd)/../<dir>:/root/<dir> -ti aldoclemente/fdapde-docker /bin/bash
 ```
 Note that the running container is removed once the session ends (i.e., after you run `exit` in the terminal).
 
