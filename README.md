@@ -33,12 +33,8 @@ To compile a custom C++ script inside the container, use the following command:
 ```
 g++ -o script script.cpp -I/path/to/<dir> -I/path/to/<dir>/fdaPDE/core/ -I/usr/include/eigen3 -O2 -std=c++20 -g -march=native -DFDAPDE_NO_DEBUG
 ```
-*Notes*
 
-* Note the three `-I` include paths. Additionally, remember 
-
-* Ensure that every custom script contains `#include<Eigen/Dense>` along with other necessary headers from the `fdaPDE` library. 
-
+Ensure that every custom script contains `#include<Eigen/Dense>` along with other necessary headers from the `fdaPDE` library. 
 
 ##### MPI support
 The Docker image also provides MPI support for parallel computing with MPI. To compile a script with MPI support, use the following command:
