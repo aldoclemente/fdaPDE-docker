@@ -10,7 +10,7 @@ Assume you have cloned [fdaPDE-cpp](https://github.com/fdaPDE/fdaPDE-cpp) reposi
 ##### Mounting the directory
 To test or develop within the Docker container, you need to mount `<dir>`. Run the following command from the terminal, ensuring your current working directory is `<dir>`:
 ```
- docker run --rm --name=tmp-container -v $(pwd)/../<dir>:/root/<dir> -ti aldoclemente/fdapde-docker /bin/bash
+ docker run --rm -v $(pwd)/../<dir>:/root/<dir> -ti aldoclemente/fdapde-docker /bin/bash
 ```
 *Notes*
 
