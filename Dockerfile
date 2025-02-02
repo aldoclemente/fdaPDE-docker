@@ -18,5 +18,9 @@ RUN pacman --noconfirm -Sy nano
 RUN pacman --noconfirm -Sy gtest
 RUN pacman --noconfirm -Sy valgrind
 RUN pacman --noconfirm -Sy openmpi
+RUN pacman-key --init
+RUN pacman --noconfirm -Sy archlinux-keyring
+RUN pacman --noconfirm -Sy ttf-dejavu ttf-liberation
+RUN pacman --noconfirm -Sy heaptrack
 
 
