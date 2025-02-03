@@ -2,6 +2,10 @@
 
 This docker image provides an environment for compiling and running the C++ library [fdaPDE-cpp](https://github.com/fdaPDE/fdaPDE-cpp) or its [core](https://github.com/fdaPDE/fdaPDE-core).    
 
+```
+docker pull aldoclemente/fdapde-docker:latest
+```
+
 #### Getting started
 
 ##### Cloning the repository 
