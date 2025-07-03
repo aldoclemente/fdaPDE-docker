@@ -1,8 +1,9 @@
 FROM archlinux:latest
 
+RUN pacman-key --init
 RUN pacman --noconfirm -Sy gcc
 RUN pacman --noconfirm -Sy clang
-RUN pacman --noconfirm -Sy icu
+RUN pacman --noconfirm -Syu icu
 RUN pacman --noconfirm -Sy make
 RUN pacman --noconfirm -Sy cmake
 RUN pacman --noconfirm -Sy git
@@ -18,9 +19,8 @@ RUN pacman --noconfirm -Sy nano
 RUN pacman --noconfirm -Sy gtest
 RUN pacman --noconfirm -Sy valgrind
 RUN pacman --noconfirm -Sy openmpi
-RUN pacman-key --init
 RUN pacman --noconfirm -Sy archlinux-keyring
 RUN pacman --noconfirm -Sy ttf-dejavu ttf-liberation
 RUN pacman --noconfirm -Sy heaptrack
-
+RUN cd /usr/include && git clone https://github.com/yixuan/LBFGSpp.git
 

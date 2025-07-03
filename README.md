@@ -40,6 +40,14 @@ g++ -o script script.cpp -I/path/to/<dir> -I/path/to/<dir>/fdaPDE/core/ -I/usr/i
 
 Ensure that every custom script contains `#include<Eigen/Dense>` along with other necessary headers from the `fdaPDE` library. 
 
+#### LBFGS++
+The Docker image includes [LBFGS++](https://lbfgspp.statr.me/), a header-only C++ library implementing both LBFGS and LBFGSB (i.e. the version with box constraints). The library depends only on the Eigen library.
+To use LBFGS++, compile your C++ source with the appropriate include paths:
+
+```
+g++ -o script script.cpp -I/usr/include/eigen3 -I/usr/include/LBFGSpp/include -O2 -std=c++20 
+```
+
 ##### MPI support
 The Docker image also provides MPI support for parallel computing with MPI. To compile a script with MPI support, use the following command:
 ```
