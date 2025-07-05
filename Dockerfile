@@ -24,3 +24,12 @@ RUN pacman --noconfirm -Sy ttf-dejavu ttf-liberation
 RUN pacman --noconfirm -Sy heaptrack
 RUN cd /usr/include && git clone https://github.com/yixuan/LBFGSpp.git
 
+RUN pacman --noconfirm -Sy pkgconf
+RUN pacman --noconfirm -Sy libxml2
+RUN cd && echo "install.packages(c('Rcpp', 'RcppEigen', 'R6', 'devtools'), repos='https://cran.stat.unipd.it/')" > tmp.R
+RUN cd && Rscript tmp.R
+RUN cd && rm tmp.R
+#RUN cd && git clone --recursive https://github.com/fdaPDE/fdaPDE-R.git
+#RUN echo "cd fdaPDE-R && git submodule update --recursive --remote" > update_fdaPDE-R.sh
+#RUN chmod +x update_fdaPDE-R.sh
+
