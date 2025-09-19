@@ -29,6 +29,11 @@ RUN pacman --noconfirm -Sy libxml2
 RUN cd && echo "install.packages(c('Rcpp', 'RcppEigen', 'R6', 'devtools'), repos='https://cran.stat.unipd.it/')" > tmp.R
 RUN cd && Rscript tmp.R
 RUN cd && rm tmp.R
+
+RUN pacman -Syu
+RUN pacman --noconfirm -Sy debuginfod
+ENV DEBUGINFOD_URLS=https://debuginfod.archlinux.org
+
 #RUN cd && git clone --recursive https://github.com/fdaPDE/fdaPDE-R.git
 #RUN echo "cd fdaPDE-R && git submodule update --recursive --remote" > update_fdaPDE-R.sh
 #RUN chmod +x update_fdaPDE-R.sh
